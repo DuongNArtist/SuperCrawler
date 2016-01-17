@@ -14,12 +14,6 @@ public class MainUrl {
         setTag(tag);
     }
 
-    public MainUrl(int group, String url, String tag) {
-        setGroup(group);
-        setUrl(url);
-        setTag(tag);
-    }
-
     public int getGroup() {
         return group;
     }
