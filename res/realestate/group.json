@@ -1,0 +1,16 @@
+{
+  "group": [
+    {
+      "groupStep": 1,
+      "groupEnd": 525,
+      "groupTag": "div.p-title",
+      "groupId": 1,
+      "typeId": 1,
+      "groupFormat": "http://batdongsan.com.vn/ban-nha-mat-pho/p%s",
+      "groupStart": 2,
+      "pageId": 1,
+      "categoryId": 1,
+      "groupUrl": "http://batdongsan.com.vn/ban-nha-mat-pho"
+    }
+  ]
+}

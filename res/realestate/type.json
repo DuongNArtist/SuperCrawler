@@ -1,0 +1,20 @@
+{
+  "type": [
+    {
+      "typeName": "Cần bán",
+      "typeId": 1
+    },
+    {
+      "typeName": "Cần mua",
+      "typeId": 2
+    },
+    {
+      "typeName": "Cho thuê",
+      "typeId": 3
+    },
+    {
+      "typeName": "Cần thuê",
+      "typeId": 4
+    }
+  ]
+}

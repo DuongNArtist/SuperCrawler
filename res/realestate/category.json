@@ -1,0 +1,84 @@
+{
+  "category": [
+    {
+      "categoryNote": "note",
+      "categoryName": "Nhà mặt tiền",
+      "categoryId": 1
+    },
+    {
+      "categoryNote": "note",
+      "categoryName": "Nhà trong hẻm",
+      "categoryId": 2
+    },
+    {
+      "categoryNote": "note",
+      "categoryName": "Nhà liền kề, biệt thự",
+      "categoryId": 3
+    },
+    {
+      "categoryNote": "note",
+      "categoryName": "Căn hộ chung cư",
+      "categoryId": 4
+    },
+    {
+      "categoryNote": "note",
+      "categoryName": "Văn phòng",
+      "categoryId": 5
+    },
+    {
+      "categoryNote": "note",
+      "categoryName": "Đất thổ cư",
+      "categoryId": 6
+    },
+    {
+      "categoryNote": "note",
+      "categoryName": "Đất nền, liền kế, dự án",
+      "categoryId": 7
+    },
+    {
+      "categoryNote": "note",
+      "categoryName": "Đất nông, lâm nghiệp",
+      "categoryId": 8
+    },
+    {
+      "categoryNote": "note",
+      "categoryName": "Trang trại",
+      "categoryId": 9
+    },
+    {
+      "categoryNote": "note",
+      "categoryName": "Mặt bằng",
+      "categoryId": 10
+    },
+    {
+      "categoryNote": "note",
+      "categoryName": "Khu nghỉ dưỡng",
+      "categoryId": 11
+    },
+    {
+      "categoryNote": "note",
+      "categoryName": "Phòng, nhà trọ",
+      "categoryId": 12
+    },
+    {
+      "categoryNote": "note",
+      "categoryName": "Nhà hàng, khách sạn",
+      "categoryId": 13
+    },
+    {
+      "categoryNote": "note",
+      "categoryName": "Shop, kiot, quán",
+      "categoryId": 14
+    },
+    {
+      "categoryNote": "note",
+      "categoryName": "Kho, xưởng",
+      "categoryId": 15
+    },
+    {
+      "categoryNote": "note",
+      "categoryName": "Các loại khác",
+      "categoryId": 16
+    }
+  ]
+}
