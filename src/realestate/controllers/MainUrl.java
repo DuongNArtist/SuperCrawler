@@ -7,11 +7,13 @@ public class MainUrl {
     private int group;
     private String url;
     private String tag;
+    private String folder;
 
-    public MainUrl(int group, String url, String tag) {
+    public MainUrl(int group, String url, String tag, String folder) {
         setGroup(group);
         setUrl(url);
         setTag(tag);
+        setFolder(folder);
     }
 
     public int getGroup() {
@@ -36,5 +38,13 @@ public class MainUrl {
 
     public void setTag(String tag) {
         this.tag = tag;
+    }
+
+    public String getFolder() {
+        return folder;
+    }
+
+    public void setFolder(String folder) {
+        this.folder = folder;
     }
 }

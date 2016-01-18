@@ -6,12 +6,14 @@ import realestate.models.Group;
 import realestate.models.Page;
 import realestate.models.Type;
 
+import java.io.File;
+
 /**
  * Created by duongnartist on 1/18/16.
  */
 public class RealEstate {
 
-    public static final String HOME = "res/realestate/";
+    public static final String HOME = "res" + File.separator + "realestate" + File.separator;
 
     public static void main(String[] args) {
         Page.init();

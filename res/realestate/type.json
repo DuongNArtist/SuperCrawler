@@ -1,19 +1,19 @@
 {
   "type": [
     {
-      "typeName": "Cần bán",
+      "typeName": "cần bán",
       "typeId": 1
     },
     {
-      "typeName": "Cần mua",
+      "typeName": "cần mua",
       "typeId": 2
     },
     {
-      "typeName": "Cho thuê",
+      "typeName": "cho thuê",
       "typeId": 3
     },
     {
-      "typeName": "Cần thuê",
+      "typeName": "cần thuê",
       "typeId": 4
     }
   ]

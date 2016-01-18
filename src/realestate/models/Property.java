@@ -15,6 +15,7 @@ public class Property extends JSONObject {
     public static final String GROUP = PREFIX + "Group";
     public static final String URL = PREFIX + "Url";
     public static final String TITLE = PREFIX + "Title";
+    public static final String SECTOR = PREFIX + "Sector";
     public static final String PRICE = PREFIX + "Price";
     public static final String SQUARE = PREFIX + "Square";
     public static final String ADDRESS = PREFIX + "Address";
@@ -80,6 +81,14 @@ public class Property extends JSONObject {
         put(TITLE, title);
     }
 
+    public String getSector() {
+        return getString(SECTOR);
+    }
+
+    public void setSector(String sector) {
+        put(SECTOR, sector);
+    }
+
     public String getPrice() {
         return getString(PRICE);
     }
@@ -126,6 +135,14 @@ public class Property extends JSONObject {
 
     public void setPosted(String posted) {
         put(POSTED, posted);
+    }
+
+    public String getExpired() {
+        return getString(EXPIRED);
+    }
+
+    public void setExpired(String expired) {
+        put(EXPIRED, expired);
     }
 
     public String getName() {

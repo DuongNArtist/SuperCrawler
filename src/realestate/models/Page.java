@@ -5,6 +5,8 @@ import org.json.JSONObject;
 import realestate.RealEstate;
 import utils.FileUtils;
 
+import java.util.ArrayList;
+
 /**
  * Created by duongnartist on 1/18/16.
  */
@@ -14,7 +16,7 @@ public class Page extends JSONObject {
     public static final String NAME = PREFIX + "Name";
     public static final String URL = PREFIX + "Url";
     public static final String NOTE = PREFIX + "Note";
-    private static JSONArray pages = new JSONArray();
+    private static ArrayList<Page> pages = new ArrayList<Page>();
 
     public Page() {
 
@@ -27,16 +29,19 @@ public class Page extends JSONObject {
         setNote(note);
     }
 
-    public static JSONArray getPages() {
+    public static ArrayList<Page> getPages() {
         return pages;
     }
 
     public static void init() {
         JSONObject object = new JSONObject();
+        JSONArray objects = new JSONArray();
         int id = 0;
-        pages = new JSONArray();
-        pages.put(new Page(++id, "Bất Động Sản", "http://batdongsan.com.vn/", ""));
-        object.put(PREFIX, pages);
+        pages.clear();
+        Page page = new Page(++id, "bất động sản", "http://batdongsan.com.vn/", "");
+        pages.add(page);
+        objects.put(page);
+        object.put(PREFIX, objects);
         FileUtils.write(object, RealEstate.HOME + PREFIX);
     }
 

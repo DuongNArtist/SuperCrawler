@@ -2,82 +2,82 @@
   "category": [
     {
       "categoryNote": "note",
-      "categoryName": "Nhà mặt tiền",
+      "categoryName": "nhà mặt tiền",
       "categoryId": 1
     },
     {
       "categoryNote": "note",
-      "categoryName": "Nhà trong hẻm",
+      "categoryName": "nhà trong hẻm",
       "categoryId": 2
     },
     {
       "categoryNote": "note",
-      "categoryName": "Nhà liền kề, biệt thự",
+      "categoryName": "nhà liền kề - Biệt thự",
       "categoryId": 3
     },
     {
       "categoryNote": "note",
-      "categoryName": "Căn hộ chung cư",
+      "categoryName": "căn hộ chung cư",
       "categoryId": 4
     },
     {
       "categoryNote": "note",
-      "categoryName": "Văn phòng",
+      "categoryName": "văn phòng",
       "categoryId": 5
     },
     {
       "categoryNote": "note",
-      "categoryName": "Đất thổ cư",
+      "categoryName": "đất thổ cư",
       "categoryId": 6
     },
     {
       "categoryNote": "note",
-      "categoryName": "Đất nền, liền kế, dự án",
+      "categoryName": "đất nền - đất liền kế - đất dự án",
       "categoryId": 7
     },
     {
       "categoryNote": "note",
-      "categoryName": "Đất nông, lâm nghiệp",
+      "categoryName": "đất nông - đất lâm nghiệp",
       "categoryId": 8
     },
     {
       "categoryNote": "note",
-      "categoryName": "Trang trại",
+      "categoryName": "trang trại",
       "categoryId": 9
     },
     {
       "categoryNote": "note",
-      "categoryName": "Mặt bằng",
+      "categoryName": "mặt bằng",
       "categoryId": 10
     },
     {
       "categoryNote": "note",
-      "categoryName": "Khu nghỉ dưỡng",
+      "categoryName": "khu nghỉ dưỡng",
       "categoryId": 11
     },
     {
       "categoryNote": "note",
-      "categoryName": "Phòng, nhà trọ",
+      "categoryName": "phòng trọ - nhà trọ",
       "categoryId": 12
     },
     {
       "categoryNote": "note",
-      "categoryName": "Nhà hàng, khách sạn",
+      "categoryName": "nhà hàng - khách sạn",
       "categoryId": 13
     },
     {
       "categoryNote": "note",
-      "categoryName": "Shop, kiot, quán",
+      "categoryName": "shop - kiot - quán",
       "categoryId": 14
     },
     {
       "categoryNote": "note",
-      "categoryName": "Kho, xưởng",
+      "categoryName": "kho - xưởng",
       "categoryId": 15
     },
     {
       "categoryNote": "note",
-      "categoryName": "Các loại khác",
+      "categoryName": "các loại khác",
       "categoryId": 16
     }
   ]

@@ -5,6 +5,8 @@ import org.json.JSONObject;
 import realestate.RealEstate;
 import utils.FileUtils;
 
+import java.util.ArrayList;
+
 /**
  * Created by duongnartist on 1/18/16.
  */
@@ -13,7 +15,7 @@ public class Category extends JSONObject {
     public static final String ID = PREFIX + "Id";
     public static final String NAME = PREFIX + "Name";
     public static final String NOTE = PREFIX + "Note";
-    private static JSONArray cates = new JSONArray();
+    private static ArrayList<Category> categories = new ArrayList<Category>();
 
     public Category() {
 
@@ -25,31 +27,64 @@ public class Category extends JSONObject {
         setNote(note);
     }
 
-    public static JSONArray getCates() {
-        return cates;
+    public static ArrayList<Category> getCategories() {
+        return categories;
     }
 
     public static void init() {
         JSONObject object = new JSONObject();
+        JSONArray objects = new JSONArray();
         int id = 0;
-        cates = new JSONArray();
-        cates.put(new Category(++id, "Nhà mặt tiền", "note"));
-        cates.put(new Category(++id, "Nhà trong hẻm", "note"));
-        cates.put(new Category(++id, "Nhà liền kề, biệt thự", "note"));
-        cates.put(new Category(++id, "Căn hộ chung cư", "note"));
-        cates.put(new Category(++id, "Văn phòng", "note"));
-        cates.put(new Category(++id, "Đất thổ cư", "note"));
-        cates.put(new Category(++id, "Đất nền, liền kế, dự án", "note"));
-        cates.put(new Category(++id, "Đất nông, lâm nghiệp", "note"));
-        cates.put(new Category(++id, "Trang trại", "note"));
-        cates.put(new Category(++id, "Mặt bằng", "note"));
-        cates.put(new Category(++id, "Khu nghỉ dưỡng", "note"));
-        cates.put(new Category(++id, "Phòng, nhà trọ", "note"));
-        cates.put(new Category(++id, "Nhà hàng, khách sạn", "note"));
-        cates.put(new Category(++id, "Shop, kiot, quán", "note"));
-        cates.put(new Category(++id, "Kho, xưởng", "note"));
-        cates.put(new Category(++id, "Các loại khác", "note"));
-        object.put(PREFIX, cates);
+        categories.clear();
+        Category category = new Category(++id, "nhà mặt tiền", "note");
+        categories.add(category);
+        objects.put(category);
+        category = new Category(++id, "nhà trong hẻm", "note");
+        categories.add(category);
+        objects.put(category);
+        category = new Category(++id, "nhà liền kề - Biệt thự", "note");
+        categories.add(category);
+        objects.put(category);
+        category = new Category(++id, "căn hộ chung cư", "note");
+        categories.add(category);
+        objects.put(category);
+        category = new Category(++id, "văn phòng", "note");
+        categories.add(category);
+        objects.put(category);
+        category = new Category(++id, "đất thổ cư", "note");
+        categories.add(category);
+        objects.put(category);
+        category = new Category(++id, "đất nền - đất liền kế - đất dự án", "note");
+        categories.add(category);
+        objects.put(category);
+        category = new Category(++id, "đất nông - đất lâm nghiệp", "note");
+        categories.add(category);
+        objects.put(category);
+        category = new Category(++id, "trang trại", "note");
+        categories.add(category);
+        objects.put(category);
+        category = new Category(++id, "mặt bằng", "note");
+        categories.add(category);
+        objects.put(category);
+        category = new Category(++id, "khu nghỉ dưỡng", "note");
+        categories.add(category);
+        objects.put(category);
+        category = new Category(++id, "phòng trọ - nhà trọ", "note");
+        categories.add(category);
+        objects.put(category);
+        category = new Category(++id, "nhà hàng - khách sạn", "note");
+        categories.add(category);
+        objects.put(category);
+        category = new Category(++id, "shop - kiot - quán", "note");
+        categories.add(category);
+        objects.put(category);
+        category = new Category(++id, "kho - xưởng", "note");
+        categories.add(category);
+        objects.put(category);
+        category = new Category(++id, "các loại khác", "note");
+        categories.add(category);
+        objects.put(category);
+        object.put(PREFIX, objects);
         FileUtils.write(object, RealEstate.HOME + PREFIX);
     }
 
