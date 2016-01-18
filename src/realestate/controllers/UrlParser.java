@@ -16,6 +16,8 @@ import java.util.ArrayList;
  * Created by duongnartist on 1/18/16.
  */
 public class UrlParser {
+
+    private static int parsed = 0;
     private static ArrayList<MainUrl> mainUrls = new ArrayList<MainUrl>();
 
     public static ArrayList<MainUrl> getMainUrls() {
@@ -23,16 +25,23 @@ public class UrlParser {
     }
 
     public static void initMainUrls(Group group) {
-        String folder = getFolder(group);
+        String folder = getMainFolder(group);
         mainUrls.clear();
         mainUrls.add(new MainUrl(group.getId(), group.getUrl(), group.getTag(), folder));
         for (int i = group.getStart(); i <= group.getEnd(); i += group.getStep()) {
             String mainUrl = String.format(group.getFormat(), i);
             mainUrls.add(new MainUrl(group.getId(), mainUrl, group.getTag(), folder));
         }
+        System.out.println("Đã lấy được " + String.format("%1$" + 8 + "s", mainUrls.size()) + " đường dẫn trang chính lưu tại thư mục: " + folder);
         //System.out.println("Sub = " + group.getId());
+        /*
         for (MainUrl mainUrl : mainUrls) {
             //System.out.println(mainUrl.getUrl());
+            getSubUrls(mainUrl);
+        }
+        */
+        for (int i = mainUrls.size() - 1; i > 0; i--) {
+            MainUrl mainUrl = mainUrls.get(i);
             getSubUrls(mainUrl);
         }
     }
@@ -50,10 +59,12 @@ public class UrlParser {
                     if (subUrl.contains("batdongsan")) {
                         parseFromBatDongSan(property);
                     }
-                    FileUtils.write(property, mainUrl.getFolder() + subUrl.substring(subUrl.length() - 7));
+                    String path = getSubFolder(mainUrl, property) + subUrl.substring(subUrl.length() - 7);
+                    FileUtils.write(property, path);
                     Property.getProperties().add(property);
+                    System.out.println("Đã lấy được " + String.format("%1$" + 8 + "s", ++parsed) + " tin bất động sản, đã lưu bằng tệp tin: " + path + ".json");
                     //System.out.println(subUrl);
-                    System.out.println(property.toString());
+                    //System.out.println(property.toString());
                 }
             }
         } catch (IOException e) {
@@ -61,7 +72,30 @@ public class UrlParser {
         }
     }
 
-    public static String getFolder(Group group) {
+    public static String getSubFolder(MainUrl mainUrl, Property property) {
+        String[] dates = property.getPosted().split("-");
+        //System.out.println(property.getPosted());
+        String folder = mainUrl.getFolder();
+        for (int i = dates.length - 1; i >= 0; i--) {
+            String prefix = "";
+            if (i == 2) {
+                prefix = "năm ";
+            } else if (i == 1) {
+                prefix = "tháng ";
+            } else if (i == 0) {
+                prefix = "ngày ";
+            }
+            folder += (prefix + dates[i] + File.separator);
+            File file = new File(folder);
+            if (!file.exists()) {
+                file.mkdir();
+                System.out.println("Đã tạo thư mục: " + folder);
+            }
+        }
+        return folder;
+    }
+
+    public static String getMainFolder(Group group) {
         int pageId = group.getPage();
         int typeId = group.getType();
         int categoryId = group.getCategory();
@@ -87,16 +121,19 @@ public class UrlParser {
         File file = new File(folder);
         if (!file.exists()) {
             file.mkdir();
+            System.out.println("Đã tạo thư mục: " + folder);
         }
         folder += typeName + File.separator;
         file = new File(folder);
         if (!file.exists()) {
             file.mkdir();
+            System.out.println("Đã tạo thư mục: " + folder);
         }
         folder += categoryName + File.separator;
         file = new File(folder);
         if (!file.exists()) {
             file.mkdir();
+            System.out.println("Đã tạo thư mục: " + folder);
         }
         return folder;
     }

@@ -22,6 +22,7 @@ public class Group extends JSONObject {
     public static final String END = PREFIX + "End";
     public static final String STEP = PREFIX + "Step";
     public static final String TAG = PREFIX + "Tag";
+    private static int id = 0;
     private static ArrayList<Group> groups = new ArrayList<Group>();
 
     public Group() {
@@ -48,13 +49,97 @@ public class Group extends JSONObject {
     public static void init() {
         JSONObject object = new JSONObject();
         JSONArray objects = new JSONArray();
-        int id = 0;
         groups.clear();
-        Group group = new Group(++id, 1, 1, 1, "http://batdongsan.com.vn/ban-nha-mat-pho", "http://batdongsan.com.vn/ban-nha-mat-pho/p%s", 2, 525, 1, "div.p-title");
-        groups.add(group);
-        objects.put(group);
+        initBatDongSanCanBan(objects);
         object.put(PREFIX, objects);
         FileUtils.write(object, RealEstate.HOME + PREFIX);
+        for (Group g : groups) {
+            System.out.println("Đã khởi tạo nhóm tin: " + g.getUrl());
+        }
+    }
+
+    private static void initBatDongSanCanBan(JSONArray objects) {
+        //---------------- CẦN BÁN ----------------//
+        Group group = null;
+        //-------- NHÀ MẶT PHỐ --------//
+        group = new Group(++id, 1, 1, 1, "http://batdongsan.com.vn/ban-nha-mat-pho", "http://batdongsan.com.vn/ban-nha-mat-pho/p%s", 2, 525, 1, "div.p-title");
+        groups.add(group);
+        objects.put(group);
+        //-------- NHÀ RIÊNG --------//
+        group = new Group(++id, 1, 1, 2, "http://batdongsan.com.vn/ban-nha-rieng", "http://batdongsan.com.vn/ban-nha-rieng/p%s", 2, 1432, 1, "div.p-title");
+        groups.add(group);
+        objects.put(group);
+        //-------- NHÀ BIỆT THỰ, NHÀ LIỀN KỀ --------//
+        group = new Group(++id, 1, 1, 3, "http://batdongsan.com.vn/ban-nha-biet-thu-lien-ke", "http://batdongsan.com.vn/ban-nha-biet-thu-lien-ke/p%s", 2, 246, 1, "div.p-title");
+        groups.add(group);
+        objects.put(group);
+        //-------- CĂN HỘ CHUNG CƯ --------//
+        group = new Group(++id, 1, 1, 4, "http://batdongsan.com.vn/ban-can-ho-chung-cu", "http://batdongsan.com.vn/ban-can-ho-chung-cu/p%s", 2, 1409, 1, "div.p-title");
+        groups.add(group);
+        objects.put(group);
+        //-------- ĐẤT --------//
+        group = new Group(++id, 1, 1, 6, "http://batdongsan.com.vn/ban-dat", "http://batdongsan.com.vn/ban-dat/p%s", 2, 930, 1, "div.p-title");
+        groups.add(group);
+        objects.put(group);
+        //-------- ĐẤT LIỀN KỀ, DỰ ÁN--------//
+        group = new Group(++id, 1, 1, 7, "http://batdongsan.com.vn/ban-dat-nen-du-an", "http://batdongsan.com.vn/ban-dat-nen-du-an/p%s", 2, 356, 1, "div.p-title");
+        groups.add(group);
+        objects.put(group);
+        //-------- TRANG TRẠI --------//
+        group = new Group(++id, 1, 1, 9, "http://batdongsan.com.vn/ban-trang-trai-khu-nghi-duong", "http://batdongsan.com.vn/ban-trang-trai-khu-nghi-duong/p%s", 2, 16, 1, "div.p-title");
+        groups.add(group);
+        objects.put(group);
+        //-------- KHO NHÀ XƯỞNG --------//
+        group = new Group(++id, 1, 1, 15, "http://batdongsan.com.vn/ban-kho-nha-xuong", "http://batdongsan.com.vn/ban-kho-nha-xuong/p%s", 2, 13, 1, "div.p-title");
+        groups.add(group);
+        objects.put(group);
+        //-------- CÁC LOẠI BĐS KHÁC --------//
+        group = new Group(++id, 1, 1, 16, "http://batdongsan.com.vn/ban-loai-bat-dong-san-khac", "http://batdongsan.com.vn/ban-loai-bat-dong-san-khac/p%s", 2, 17, 1, "div.p-title");
+        groups.add(group);
+        objects.put(group);
+        //---------------- THE END ----------------//
+    }
+
+    private static void initBatDongSanCanMua(JSONArray objects) {
+        //---------------- CẦN MUA ----------------//
+        Group group = null;
+        //-------- NHÀ MẶT PHỐ --------//
+        group = new Group(++id, 1, 2, 1, "http://batdongsan.com.vn/mua-nha-mat-pho", "http://batdongsan.com.vn/mua-nha-mat-pho/p%s", 2, 525, 1, "div.p-title");
+        groups.add(group);
+        objects.put(group);
+        //-------- NHÀ RIÊNG --------//
+        group = new Group(++id, 1, 2, 2, "http://batdongsan.com.vn/mua-nha-rieng", "http://batdongsan.com.vn/mua-nha-rieng/p%s", 2, 1432, 1, "div.p-title");
+        groups.add(group);
+        objects.put(group);
+        //-------- NHÀ BIỆT THỰ, NHÀ LIỀN KỀ --------//
+        group = new Group(++id, 1, 2, 3, "http://batdongsan.com.vn/mua-nha-biet-thu-lien-ke", "http://batdongsan.com.vn/mua-nha-biet-thu-lien-ke/p%s", 2, 246, 1, "div.p-title");
+        groups.add(group);
+        objects.put(group);
+        //-------- CĂN HỘ CHUNG CƯ --------//
+        group = new Group(++id, 1, 2, 4, "http://batdongsan.com.vn/mua-can-ho-chung-cu", "http://batdongsan.com.vn/mua-can-ho-chung-cu/p%s", 2, 1409, 1, "div.p-title");
+        groups.add(group);
+        objects.put(group);
+        //-------- ĐẤT --------//
+        group = new Group(++id, 1, 2, 6, "http://batdongsan.com.vn/mua-dat", "http://batdongsan.com.vn/mua-dat/p%s", 2, 930, 1, "div.p-title");
+        groups.add(group);
+        objects.put(group);
+        //-------- ĐẤT LIỀN KỀ, DỰ ÁN--------//
+        group = new Group(++id, 1, 2, 7, "http://batdongsan.com.vn/mua-dat-nen-du-an", "http://batdongsan.com.vn/mua-dat-nen-du-an/p%s", 2, 356, 1, "div.p-title");
+        groups.add(group);
+        objects.put(group);
+        //-------- TRANG TRẠI --------//
+        group = new Group(++id, 1, 2, 9, "http://batdongsan.com.vn/mua-trang-trai-khu-nghi-duong", "http://batdongsan.com.vn/mua-trang-trai-khu-nghi-duong/p%s", 2, 16, 1, "div.p-title");
+        groups.add(group);
+        objects.put(group);
+        //-------- KHO NHÀ XƯỞNG --------//
+        group = new Group(++id, 1, 2, 15, "http://batdongsan.com.vn/mua-kho-nha-xuong", "http://batdongsan.com.vn/mua-kho-nha-xuong/p%s", 2, 13, 1, "div.p-title");
+        groups.add(group);
+        objects.put(group);
+        //-------- CÁC LOẠI BĐS KHÁC --------//
+        group = new Group(++id, 1, 2, 16, "http://batdongsan.com.vn/mua-loai-bat-dong-san-khac", "http://batdongsan.com.vn/mua-loai-bat-dong-san-khac/p%s", 2, 17, 1, "div.p-title");
+        groups.add(group);
+        objects.put(group);
+        //---------------- THE END ----------------//
     }
 
     public int getId() {

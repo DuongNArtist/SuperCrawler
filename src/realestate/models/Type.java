@@ -49,6 +49,9 @@ public class Type extends JSONObject {
         objects.put(type);
         object.put(PREFIX, objects);
         FileUtils.write(object, RealEstate.HOME + PREFIX);
+        for (Type t : types) {
+            System.out.println("Đã khởi tạo loại tin: " + t.getName());
+        }
     }
 
     public int getId() {

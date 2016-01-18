@@ -43,6 +43,9 @@ public class Page extends JSONObject {
         objects.put(page);
         object.put(PREFIX, objects);
         FileUtils.write(object, RealEstate.HOME + PREFIX);
+        for (Page p : pages) {
+            System.out.println("Đã khởi tạo trang: " + p.getName());
+        }
     }
 
     public int getId() {
