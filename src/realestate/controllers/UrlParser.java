@@ -30,20 +30,11 @@ public class UrlParser {
         mainUrls.add(new MainUrl(group.getId(), group.getUrl(), group.getTag(), folder));
         for (int i = group.getStart(); i <= group.getEnd(); i += group.getStep()) {
             String mainUrl = String.format(group.getFormat(), i);
-            mainUrls.add(new MainUrl(group.getId(), mainUrl, group.getTag(), folder));
+            MainUrl newMainUrl = new MainUrl(group.getId(), mainUrl, group.getTag(), folder);
+            mainUrls.add(newMainUrl);
+            getSubUrls(newMainUrl);
         }
         System.out.println("Đã lấy được " + String.format("%1$" + 8 + "s", mainUrls.size()) + " đường dẫn trang chính lưu tại thư mục: " + folder);
-        //System.out.println("Sub = " + group.getId());
-        /*
-        for (MainUrl mainUrl : mainUrls) {
-            //System.out.println(mainUrl.getUrl());
-            getSubUrls(mainUrl);
-        }
-        */
-        for (int i = mainUrls.size() - 1; i > 0; i--) {
-            MainUrl mainUrl = mainUrls.get(i);
-            getSubUrls(mainUrl);
-        }
     }
 
     public static void getSubUrls(MainUrl mainUrl) {

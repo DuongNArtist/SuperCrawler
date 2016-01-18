@@ -21,7 +21,12 @@ public class RealEstate {
         Category.init();
         Group.init();
         for (Group group : Group.getGroups()) {
-            UrlParser.initMainUrls(group);
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    UrlParser.initMainUrls(group);
+                }
+            }).start();
         }
     }
 }
