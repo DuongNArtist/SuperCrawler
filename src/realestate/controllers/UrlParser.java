@@ -39,7 +39,7 @@ public class UrlParser {
 
     public static void getSubUrls(MainUrl mainUrl) {
         try {
-            Document document = Jsoup.connect(mainUrl.getUrl()).get();
+            Document document = Jsoup.connect(mainUrl.getUrl()).timeout(60000).get();
             Element body = document.body();
             Elements elements = body.select(mainUrl.getTag());
             for (Element link : elements) {
@@ -64,23 +64,25 @@ public class UrlParser {
     }
 
     public static String getSubFolder(MainUrl mainUrl, Property property) {
-        String[] dates = property.getPosted().split("-");
-        //System.out.println(property.getPosted());
+        String posted = property.getPosted();
         String folder = mainUrl.getFolder();
-        for (int i = dates.length - 1; i >= 0; i--) {
-            String prefix = "";
-            if (i == 2) {
-                prefix = "năm ";
-            } else if (i == 1) {
-                prefix = "tháng ";
-            } else if (i == 0) {
-                prefix = "ngày ";
-            }
-            folder += (prefix + dates[i] + File.separator);
-            File file = new File(folder);
-            if (!file.exists()) {
-                file.mkdir();
-                System.out.println("Đã tạo thư mục: " + folder);
+        if (posted != null) {
+            String[] dates = posted.split("-");
+            for (int i = dates.length - 1; i >= 0; i--) {
+                String prefix = "";
+                if (i == 2) {
+                    prefix = "năm ";
+                } else if (i == 1) {
+                    prefix = "tháng ";
+                } else if (i == 0) {
+                    prefix = "ngày ";
+                }
+                folder += (prefix + dates[i] + File.separator);
+                File file = new File(folder);
+                if (!file.exists()) {
+                    file.mkdir();
+                    System.out.println("Đã tạo thư mục: " + folder);
+                }
             }
         }
         return folder;
@@ -131,7 +133,7 @@ public class UrlParser {
 
     public static void parseFromBatDongSan(Property property) {
         try {
-            Document document = Jsoup.connect(property.getUrl()).get();
+            Document document = Jsoup.connect(property.getUrl()).timeout(60000).get();
             // title
             String title = document.title().trim();
             property.setTitle(title);
